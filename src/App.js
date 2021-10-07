@@ -1,17 +1,26 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+
+import { ChakraProvider } from "@chakra-ui/react";
+
+import { SignedProvider } from "./Context/SignedProvider";
 
 import GlobalStyle from "./theme/globalStyle";
 
 import Routes from "./Routes/routes";
 
-export default function App() {
+function App() {
   return (
-    <Fragment>
-      <GlobalStyle />
-      <Router>
+    <ChakraProvider>
+      <Fragment>
+        <GlobalStyle />
         <Routes />
-      </Router>
-    </Fragment>
+      </Fragment>
+    </ChakraProvider>
   );
 }
+
+export default () => (
+  <SignedProvider>
+    <App />
+  </SignedProvider>
+);

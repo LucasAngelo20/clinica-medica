@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CustomInput from "../../Components/CustomInput";
 
 import Background from "../../Assets/Images/Background.png";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -24,14 +25,18 @@ export const UsernameInput = styled(CustomInput)`
     color: #fff;
     font-size: 1rem;
   }
+  font-size: 1rem;
+  outline: none;
 `;
 export const PasswordInput = styled(CustomInput)`
   &::placeholder {
     color: #fff;
     font-size: 1rem;
   }
+  font-size: 1rem;
+  outline: none;
 `;
-export const ForgotPasswordButton = styled.a`
+export const ForgotPasswordButton = styled(Link)`
   margin-top: 30px;
   color: #58bb62;
   cursor: pointer;
@@ -45,7 +50,7 @@ export const ForgotPasswordButton = styled.a`
     border: "none";
   }
 `;
-export const LoginButton = styled.button`
+export const LoginButton = styled(Link)`
   background-color: #58bb62;
   color: #fff;
   font-size: 1rem;
@@ -55,8 +60,17 @@ export const LoginButton = styled.button`
   height: 45px;
   margin-top: 60px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 
   &:hover {
     background-color: darkgreen;
   }
+`;
+
+export const Logo = styled.img`
+  width: 300px;
+  height: 200px;
 `;

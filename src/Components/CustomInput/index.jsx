@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const CustomInput = ({ icon, iconSize, ...rest }) => {
   return (
     <div
@@ -23,6 +24,7 @@ const CustomInput = ({ icon, iconSize, ...rest }) => {
           backgroundColor: "#ddd",
           color: "#fff",
         }}
+        autoComplete="off"
         {...rest}
       />
       <img
