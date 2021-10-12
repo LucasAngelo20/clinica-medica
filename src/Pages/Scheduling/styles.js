@@ -27,24 +27,24 @@ export const Day = styled.div``;
 
 export const Hour = styled.div``;
 
-export const Option = styled.div`
-  width: 100px;
-  padding: 5px;
-  margin: 0 10px 0 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  background-color: #fff;
-  color: #5b5b5b;
-  font-weight: 600;
-  cursor: pointer;
+export const Select = styled.select`
+  width: 250px;
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  color: #555;
+  font-size: 1.2rem;
+  outline: none;
+  padding: 0 10px 0 10px;
 
-  &:hover {
-    background-color: #eee;
-  }
-
-  &:checked {
+  &:focus {
     border: 2px solid #58bb62;
   }
+`;
+export const Option = styled.option`
+  font-size: 1rem;
+`;
+
+export const ConfirmButton = styled.button`
+  
 `;

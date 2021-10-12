@@ -1,7 +1,5 @@
 import React from "react";
 
-import Users from "../../Data/data.json";
-
 import {
   Container,
   Login,
@@ -13,6 +11,7 @@ import {
 } from "./styles";
 
 import LogoIcon from "../../Assets/Images/Logo.png";
+import user from '../../Data/users.json'
 
 import UserIcon from "../../Assets/Images/UserIcon.png";
 import EyeIcon from "../../Assets/Images/EyeIcon.png";

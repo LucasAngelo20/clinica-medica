@@ -1,0 +1,14 @@
+{
+  "Users": [
+    {
+      "login": "admin",
+      "password": "admin",
+      "permission": "1"
+    },
+    {
+      "login": "paciente",
+      "password": "123",
+      "permission": "0"
+    }
+  ]
+}
