@@ -20,7 +20,6 @@ export default function Historic() {
   }, []);
   return (
     <Container>
-      <button onClick={() => console.log(value)}>Historico</button>
       {value ? (
         <HistoricContent>
           <infoContainer>

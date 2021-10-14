@@ -12,10 +12,10 @@ import {
   Select,
   Option,
   ConfirmButton,
+  Title,
 } from "./styles";
 
 import data from "../../Data/data.json";
-import { parse } from "micromatch";
 
 const EspecialistArray = data.Especialist;
 const ProfessionalArray = data.Professional;
@@ -54,11 +54,13 @@ export default function Scheduling() {
 
       `
     );
+    
   }
 
   return (
     <Container>
       <Content>
+        <Title>Escolha uma opção</Title>
         <Especialist>
           <Select
             value={especialist}
@@ -129,18 +131,10 @@ export default function Scheduling() {
             ))}
           </Select>
         </Hour>
-        <ConfirmButton onClick={() => handleSaveInfos()}>
+        <ConfirmButton to="/Dashboard" onClick={() => handleSaveInfos()}>
           Confirmar
         </ConfirmButton>
-        <ConfirmButton
-          onClick={() => {
-            localStorage.setItem(`@ContadorDeCosultas/${dataAtual}`, 1);
-            const value = localStorage.getItem(`@Consulta/${dataAtual}`);
-            console.log(JSON.parse(value));
-          }}
-        >
-          Confirmar
-        </ConfirmButton>
+       
       </Content>
     </Container>
   );

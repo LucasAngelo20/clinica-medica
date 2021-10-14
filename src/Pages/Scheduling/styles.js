@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -11,6 +12,10 @@ export const Container = styled.div`
 export const Content = styled.div`
   height: 800px;
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Especialist = styled.div`
@@ -36,6 +41,7 @@ export const Select = styled.select`
   font-size: 1.2rem;
   outline: none;
   padding: 0 10px 0 10px;
+  margin: 10px 0 10px 0;
 
   &:focus {
     border: 2px solid #58bb62;
@@ -45,6 +51,23 @@ export const Option = styled.option`
   font-size: 1rem;
 `;
 
-export const ConfirmButton = styled.button`
-  
+export const ConfirmButton = styled(Link)`
+  border: none;
+  width: 200px;
+  padding: 10px 0 10px 0;
+  border-radius: 10px;
+  background-color: #58bb62;
+  color: #fff;
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+
+  :active{
+    background-color: darkgreen;
+  }
+`;
+
+export const Title = styled.h1`
+  color: #58bb62;
 `;
