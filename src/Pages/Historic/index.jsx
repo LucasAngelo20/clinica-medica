@@ -4,9 +4,10 @@ import moment from "moment";
 import {
   Container,
   HistoricContent,
-  infoContainer,
-  infoContent,
-  infoLabel,
+  InfoContainer,
+  InfoContent,
+  InfoLabel,
+  Content,
 } from "./styles";
 
 export default function Historic() {
@@ -20,32 +21,34 @@ export default function Historic() {
   }, []);
   return (
     <Container>
-      {value ? (
-        <HistoricContent>
-          <infoContainer>
-            <infoLabel>Especialista:</infoLabel>
-            <infoContent>{value.especialista}</infoContent>
-          </infoContainer>
-          <infoContainer>
-            <infoLabel>Profissional:</infoLabel>
-            <infoContent>{value.profissional}</infoContent>
-          </infoContainer>
-          <infoContainer>
-            <infoLabel>Mês:</infoLabel>
-            <infoContent>{value.mes}</infoContent>
-          </infoContainer>
-          <infoContainer>
-            <infoLabel>Dia:</infoLabel>
-            <infoContent>{value.dia}</infoContent>
-          </infoContainer>
-          <infoContainer>
-            <infoLabel>Horário:</infoLabel>
-            <infoContent>{value.hora}</infoContent>
-          </infoContainer>
-        </HistoricContent>
-      ) : (
-        <div />
-      )}
+      <Content>
+        {value ? (
+          <HistoricContent>
+            <InfoContainer>
+              <InfoLabel>Especialista:</InfoLabel>
+              <InfoContent>{value.especialista}</InfoContent>
+            </InfoContainer>
+            <InfoContainer>
+              <InfoLabel>Profissional:</InfoLabel>
+              <InfoContent>{value.profissional}</InfoContent>
+            </InfoContainer>
+            <InfoContainer>
+              <InfoLabel>Mês:</InfoLabel>
+              <InfoContent>{value.mes}</InfoContent>
+            </InfoContainer>
+            <InfoContainer>
+              <InfoLabel>Dia:</InfoLabel>
+              <InfoContent>{value.dia}</InfoContent>
+            </InfoContainer>
+            <InfoContainer>
+              <InfoLabel>Horário:</InfoLabel>
+              <InfoContent>{value.hora}</InfoContent>
+            </InfoContainer>
+          </HistoricContent>
+        ) : (
+          <div />
+        )}
+      </Content>
     </Container>
   );
 }
