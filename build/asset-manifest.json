@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/static/js/main.0e82ed5a.chunk.js",
+    "main.js.map": "/static/js/main.0e82ed5a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.98b5da2a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.98b5da2a.js.map",
+    "static/js/2.146486f0.chunk.js": "/static/js/2.146486f0.chunk.js",
+    "static/js/2.146486f0.chunk.js.map": "/static/js/2.146486f0.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.146486f0.chunk.js.LICENSE.txt": "/static/js/2.146486f0.chunk.js.LICENSE.txt",
+    "static/media/Background.16c601c2.png": "/static/media/Background.16c601c2.png",
+    "static/media/First aid kit-bro.55f95656.png": "/static/media/First aid kit-bro.55f95656.png",
+    "static/media/Logo.a2a212ac.png": "/static/media/Logo.a2a212ac.png",
+    "static/media/Medicine-bro.97dc54ff.png": "/static/media/Medicine-bro.97dc54ff.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.98b5da2a.js",
+    "static/js/2.146486f0.chunk.js",
+    "static/js/main.0e82ed5a.chunk.js"
+  ]
+}
