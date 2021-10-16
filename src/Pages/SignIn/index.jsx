@@ -98,11 +98,18 @@ export default function SignIn() {
           >
             Entrar
           </LoginButton>
-        ) : (
+        ) : username == "" && password != "" ? (
           <>
             <LoginButton>Entrar</LoginButton>
             <span style={{ color: "red" }}>Usuário ou senha errados!</span>
           </>
+        ) : username != "" && password == "" ? (
+          <>
+            <LoginButton>Entrar</LoginButton>
+            <span style={{ color: "red" }}>Usuário ou senha errados!</span>
+          </>
+        ) : (
+          <LoginButton to="/">Entrar</LoginButton>
         )}
       </Login>
     </Container>
