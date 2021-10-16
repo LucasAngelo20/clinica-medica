@@ -11,7 +11,7 @@ import {
 } from "./styles";
 
 import LogoIcon from "../../Assets/Images/Logo.png";
-import user from '../../Data/users.json'
+import user from "../../Data/users.json";
 
 import UserIcon from "../../Assets/Images/UserIcon.png";
 import EyeIcon from "../../Assets/Images/EyeIcon.png";
@@ -20,6 +20,7 @@ import { SignedContext } from "../../Context/SignedProvider";
 export default function SignIn() {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [admin, setAdmin] = React.useState(false);
   const { setUser } = React.useContext(SignedContext);
 
   return (
@@ -31,7 +32,14 @@ export default function SignIn() {
           type="text"
           icon={UserIcon}
           iconSize={20}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => {
+            if (e.target.value == "admin") {
+              setAdmin(true);
+            } else {
+              setAdmin(false);
+            }
+            setUsername(e.target.value);
+          }}
         />
         <PasswordInput
           placeholder="Senha"
@@ -41,17 +49,38 @@ export default function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <ForgotPasswordButton>Esqueceu a senha?</ForgotPasswordButton>
-        <LoginButton
-          to="/Dashboard"
-          onClick={() =>
-            setUser({
-              login: username,
-              password: password,
-            })
-          }
-        >
-          Entrar
-        </LoginButton>
+        {admin ? (
+          <LoginButton
+            to="/DashboardAdmin"
+            onClick={() =>
+              setUser({
+                login: username,
+                password: password,
+                name: "Admin",
+              })
+            }
+          >
+            Entrar Admin
+          </LoginButton>
+        ) : (
+          <LoginButton
+            to="/Dashboard"
+            onClick={() => {
+              if (localStorage.getItem("@ContadorDeConsultas")) {
+                return;
+              } else {
+                localStorage.setItem("@ContadorDeConsultas", 1);
+              }
+              setUser({
+                login: username,
+                password: password,
+                name: "paciente",
+              });
+            }}
+          >
+            Entrar
+          </LoginButton>
+        )}
       </Login>
     </Container>
   );

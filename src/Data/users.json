@@ -3,11 +3,19 @@
     {
       "login": "admin",
       "password": "admin",
+      "name": "Admin",
       "permission": "1"
     },
     {
       "login": "paciente",
       "password": "123",
+      "name": "Lucas",
+      "permission": "0"
+    },
+    {
+      "login": "paciente1",
+      "password": "123",
+      "name": "Lucas",
       "permission": "0"
     }
   ]

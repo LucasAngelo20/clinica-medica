@@ -14,8 +14,9 @@ export const Content = styled.div`
   justify-content: center;
   background-color: #fff;
   width: 400px;
-  height: 300px;
+  height: 350px;
   border-radius: 10px;
+  margin: 10px;
 `;
 
 export const HistoricContent = styled.div`

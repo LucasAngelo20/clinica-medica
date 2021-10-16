@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 
 import {
@@ -16,6 +16,7 @@ import {
 } from "./styles";
 
 import data from "../../Data/data.json";
+import { SignedContext } from "../../Context/SignedProvider";
 
 const EspecialistArray = data.Especialist;
 const ProfessionalArray = data.Professional;
@@ -24,6 +25,8 @@ const DayArray = data.Day;
 const HourArray = data.Hour;
 
 export default function Scheduling() {
+  const {user} = useContext(SignedContext)
+
   const [especialist, setEspecialist] = React.useState(EspecialistArray[0]);
   const [professional, setProfessional] = React.useState(ProfessionalArray[0]);
   const [month, setMonth] = React.useState(MonthArray[0]);
@@ -41,7 +44,7 @@ export default function Scheduling() {
     const hora = hour.Name ? hour.Name : hour;
 
     localStorage.setItem(
-      `@Consulta/${dataAtual}`,
+      `@Consulta/${localStorage.getItem("@ContadorDeConsultas")}/${dataAtual}`,
       `
       
       {
@@ -49,7 +52,8 @@ export default function Scheduling() {
       "profissional": "${profissional}",
       "mes": "${mes}",
       "dia": ${dia},
-      "hora": "${hora}"
+      "hora": "${hora}",
+      "usuário":"${user.name}"
       }
 
       `

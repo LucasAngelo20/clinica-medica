@@ -9,6 +9,7 @@ import {
   InfoLabel,
   Content,
 } from "./styles";
+import { Link } from "react-router-dom";
 
 export default function Historic() {
   const [value, setValue] = useState("");
@@ -17,38 +18,68 @@ export default function Historic() {
   );
 
   useEffect(() => {
-    setValue(JSON.parse(localStorage.getItem(`@Consulta/${dataAtual}`)));
+    const array = [];
+    for (var i = 0; i < localStorage.getItem("@ContadorDeConsultas"); i++) {
+      array[i] = JSON.parse(
+        localStorage.getItem(`@Consulta/${i + 1}/${dataAtual}`)
+      );
+    }
+
+    setValue(
+      array.filter((item) => item != null && item.usuário == "paciente")
+    );
   }, []);
   return (
     <Container>
-      <Content>
-        {value ? (
-          <HistoricContent>
-            <InfoContainer>
-              <InfoLabel>Especialista:</InfoLabel>
-              <InfoContent>{value.especialista}</InfoContent>
-            </InfoContainer>
-            <InfoContainer>
-              <InfoLabel>Profissional:</InfoLabel>
-              <InfoContent>{value.profissional}</InfoContent>
-            </InfoContainer>
-            <InfoContainer>
-              <InfoLabel>Mês:</InfoLabel>
-              <InfoContent>{value.mes}</InfoContent>
-            </InfoContainer>
-            <InfoContainer>
-              <InfoLabel>Dia:</InfoLabel>
-              <InfoContent>{value.dia}</InfoContent>
-            </InfoContainer>
-            <InfoContainer>
-              <InfoLabel>Horário:</InfoLabel>
-              <InfoContent>{value.hora}</InfoContent>
-            </InfoContainer>
-          </HistoricContent>
-        ) : (
-          <div />
-        )}
-      </Content>
+      <Link
+        style={{
+          position: "absolute",
+          top: 10,
+          left: 20,
+          textDecoration: "none",
+          Color: "#DDD",
+        }}
+        to="/Dashboard"
+      >
+        {" "}
+        Voltar{" "}
+      </Link>
+      {value ? (
+        value.map((item) => (
+          <Content>
+            <HistoricContent>
+              <InfoContainer>
+                <InfoLabel>Especialista:</InfoLabel>
+                <InfoContent>{item.especialista}</InfoContent>
+              </InfoContainer>
+              <InfoContainer>
+                <InfoLabel>Profissional:</InfoLabel>
+                <InfoContent>{item.profissional}</InfoContent>
+              </InfoContainer>
+              <InfoContainer>
+                <InfoLabel>Mês:</InfoLabel>
+                <InfoContent>{item.mes}</InfoContent>
+              </InfoContainer>
+              <InfoContainer>
+                <InfoLabel>Dia:</InfoLabel>
+                <InfoContent>{item.dia}</InfoContent>
+              </InfoContainer>
+              <InfoContainer>
+                <InfoLabel>Horário:</InfoLabel>
+                <InfoContent>{item.hora}</InfoContent>
+              </InfoContainer>
+            </HistoricContent>
+          </Content>
+        ))
+      ) : (
+        <div
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <h1>Usuário não possui consultas</h1>
+        </div>
+      )}
     </Container>
   );
 }
