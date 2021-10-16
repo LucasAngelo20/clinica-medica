@@ -56,7 +56,7 @@ export default function DashboardAdmin() {
               </InfoContainer>
               <InfoContainer>
                 <InfoLabel>Paciente:</InfoLabel>
-                <InfoContent>{item.usuário}</InfoContent>
+                <InfoContent>{item.usuario}</InfoContent>
               </InfoContainer>
             </HistoricContent>
           </Content>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import moment from "moment";
 
 import {
@@ -10,8 +10,12 @@ import {
   Content,
 } from "./styles";
 import { Link } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
+import { SignedContext } from "../../Context/SignedProvider";
 
 export default function Historic() {
+  const { user } = useContext(SignedContext);
+
   const [value, setValue] = useState("");
   const [dataAtual, setDataAtual] = useState(
     moment(new Date()).format("DD/MM/YYYY")
@@ -25,8 +29,10 @@ export default function Historic() {
       );
     }
 
-    setValue(
-      array.filter((item) => item != null && item.usuário == "paciente")
+    setValue(array.filter((item) => item != null && item.usuario == user.name));
+    console.log(
+      array.filter((item) => item != null && item.usuario == user.name),
+      user
     );
   }, []);
   return (

@@ -53,7 +53,7 @@ export default function Scheduling() {
       "mes": "${mes}",
       "dia": ${dia},
       "hora": "${hora}",
-      "usuário":"${user.name}"
+      "usuario":"${user.name}"
       }
 
       `

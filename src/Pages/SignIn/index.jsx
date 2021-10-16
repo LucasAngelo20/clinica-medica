@@ -49,7 +49,7 @@ export default function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <ForgotPasswordButton>Esqueceu a senha?</ForgotPasswordButton>
-        {admin ? (
+        {username == "admin" && password == "admin" ? (
           <LoginButton
             to="/DashboardAdmin"
             onClick={() =>
@@ -62,7 +62,7 @@ export default function SignIn() {
           >
             Entrar Admin
           </LoginButton>
-        ) : (
+        ) : username == "paciente" && password == "123" ? (
           <LoginButton
             to="/Dashboard"
             onClick={() => {
@@ -80,6 +80,29 @@ export default function SignIn() {
           >
             Entrar
           </LoginButton>
+        ) : username == "paciente2" && password == "123" ? (
+          <LoginButton
+            to="/Dashboard"
+            onClick={() => {
+              if (localStorage.getItem("@ContadorDeConsultas")) {
+                return;
+              } else {
+                localStorage.setItem("@ContadorDeConsultas", 1);
+              }
+              setUser({
+                login: username,
+                password: password,
+                name: "paciente2",
+              });
+            }}
+          >
+            Entrar
+          </LoginButton>
+        ) : (
+          <>
+            <LoginButton>Entrar</LoginButton>
+            <span style={{ color: "red" }}>Usuário ou senha errados!</span>
+          </>
         )}
       </Login>
     </Container>
